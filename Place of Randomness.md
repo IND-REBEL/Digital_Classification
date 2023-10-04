@@ -8,4 +8,4 @@ Place of Randomness:
 2. mode:
     - Weight Initialization 
 
-
+fwwefewfwefweFWEFWE
