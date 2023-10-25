@@ -18,6 +18,12 @@ import matplotlib.pyplot as plt
 from sklearn import datasets, metrics, svm
 from sklearn.model_selection import train_test_split
 
+def preprocess_data(data):
+  # flatten the images
+  n_samples = len(data)
+  data = data.reshape((n_samples, -1))
+  return data
+
 ###############################################################################
 # Digits dataset
 # --------------
@@ -55,9 +61,8 @@ for ax, image, label in zip(axes, digits.images, digits.target):
 # subsequently be used to predict the value of the digit for the samples
 # in the test subset.
 
-# flatten the images
-n_samples = len(digits.images)
-data = digits.images.reshape((n_samples, -1))
+
+data= preprocess_data(digits.images)
 
 # Create a classifier: a support vector classifier
 clf = svm.SVC(gamma=0.001)
