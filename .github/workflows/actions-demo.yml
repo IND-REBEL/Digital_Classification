@@ -21,4 +21,4 @@ jobs:
       - name: Install dep
         run:  pip3 install --no-cache-dir -r Requirements.txt
       - name: Run experiment
-        run: python exp.py
+        run: python Exp.py
