@@ -41,7 +41,9 @@ def train_test_dev_split(X, y, test_size=0.5, dev_size=0.2, random_state=1):
 def predict_and_eval(model, X_test, y_test):
     # Make predictions on the test set
     predicted = model.predict(X_test)
-    print( 
+    return  metrics.accuracy_score(y_test, predicted)
+
+    """print( 
         f"classification for classifier {model}:\n"
         f"{metrics.classification_report(y_test, predicted)}\n"
     )
@@ -67,4 +69,4 @@ def predict_and_eval(model, X_test, y_test):
     print(
         "Classification report rebuilt from confusion matrix:\n"
         f"{metrics.classification_report(y_true, y_pred)}\n"
-    )
+    )"""
