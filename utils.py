@@ -30,3 +30,20 @@ def train_model(x,y,model_params, model_type="svm"):
     model = clf(**model_params)
     model.fit(x,y)
     return model
+    
+    
+    
+def train_test_dev_split(X, y, test_size=0.5, dev_size=0.2, random_state=1):
+    X_train, X_test, y_train, y_test = split_data(X, y, test_size, random_state)
+    X_dev, X_test, y_dev, y_test = split_data(X_test, y_test, dev_size, random_state)
+    return X_train, X_test, y_train, y_test, X_dev, y_dev
+
+def predict_and_eval(model, X_test, y_test):
+    # Make predictions on the test set
+    y_pred = model.predict(X_test)
+    
+    # Evaluate the model
+    accuracy = accuracy_score(y_test, y_pred)
+    report = classification_report(y_test, y_pred)
+    
+    return accuracy, report
