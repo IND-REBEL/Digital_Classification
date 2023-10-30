@@ -57,6 +57,7 @@ def train_model(x, y, model_params, model_type="svm"):
         # Create a classifier: a support vector classifier
         clf = svm.SVC
     model = clf(**model_params)
+
     # train the model
     model.fit(x, y)
     return model
