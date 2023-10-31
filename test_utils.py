@@ -1,4 +1,4 @@
-from utils import get_hyperparameter_combinations, train_test_dev_split,read_digits, tune_hparams, preprocess_data
+from utils import get_hyperparameter_combinations
 
 def test_for_hparam_cominations_count():
     # a test case to check that all possible combinations of paramers are indeed generated
@@ -12,7 +12,6 @@ def test_for_hparam_cominations_count():
     assert len(h_params_combinations) == len(gamma_list) * len(C_list)
 
 def test_for_hparam_cominations_count_values():
-    # a test case to check that all possible combinations of paramers are indeed generated
     gamma_list = [0.001, 0.01]
     C_list = [1]
     h_params={}
@@ -21,6 +20,6 @@ def test_for_hparam_cominations_count_values():
     h_params_combinations = get_hyperparameter_combinations(h_params)
 
     expected_param_combo_1 = {'gamma': 0.001, 'C': 1}
-    expected_param_combo_2 = {'gamma': 0.01, 'C': 10}
+    expected_param_combo_2 = {'gamma': 0.01, 'C': 1}
 
     assert (expected_param_combo_1 in h_params_combinations) and (expected_param_combo_2 in h_params_combinations)
