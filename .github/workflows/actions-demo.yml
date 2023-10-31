@@ -22,5 +22,5 @@ jobs:
         run:  pip3 install --no-cache-dir -r Requirement.txt
       - name: Run pytest
         run: pytest
-        name: Run experiment
+      - name: Run experiment
         run: python Exp_1.py
